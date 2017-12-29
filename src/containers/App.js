@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
-import logo from '../logo.svg';
 import classes from './App.css';
-import Person from '../components/Persons/Person/Person';
+import Persons from '../components/Persons/Persons'
+import CockPit from '../components/Cockpit/Cockpit'
 //import Radium, {StyleRoot} from 'radium';
 
 class App extends Component {
@@ -47,58 +47,15 @@ class App extends Component {
     this.setState({persons: persons});
   }
 
-  render() {
-    // Scoped Styling
-    // const style = {
-    //   backgroundColor : 'green',
-    //   color : 'white',
-    //   font : 'inherit',
-    //   border : '1px solid blue',
-    //   padding : '8px',
-    //   cursor: 'pointer',
-    //   //':hover': { backgroundColor : 'lightgreen', color : 'black' }
-    // };
-
-    let persons = null;
-    let btnStyle = classes.button;
-
-    if(this.state.showPersons)
-    {
-      persons = (<div>
-          {
-            this.state.persons.map((person, index) => {
-              return (
-                <Person name={person.name} 
-                        age={person.age} 
-                        key={person.id}
-                        onClick = { this.deletePersonHandler.bind(this,index) } 
-                        changed = {(event) => this.nameChangedHandler(event,person.id)}                      
-                />
-              )})          
-          }                      
-        </div>);
-
-        // style.backgroundColor = 'red';
-        // style.color = 'black';
-        // style[':hover'] = { backgroundColor : 'salmon', color : 'black' }
-        btnStyle = classes.Red;
-    } 
-    
-
+  render() {        
     return (
       //<StyleRoot>
         <div className={classes.App}>
-          <header className={classes.Appheader}>
-            <img src={logo} className={classes.Applogo} alt="logo" />
-            <h1 className={classes.Apptitle}>Welcome to React</h1>
-          </header>
-          <p className={classes.Appintro}>
-            To get started, edit <code>src/App.js</code> and save to reload.
-          </p>
-          <button className = {btnStyle}           
-            onClick = {this.togglePersonHandler}>Toggle Persons</button>
-          
-          {persons}                  
+          <CockPit toggled = {this.togglePersonHandler} showPersons = {this.state.showPersons} />          
+          <Persons showPersons = {this.state.showPersons}
+            persons = {this.state.persons} 
+            clicked = {this.deletePersonHandler} 
+            changed = {this.nameChangedHandler} />                  
         </div>
       //</StyleRoot>
     );

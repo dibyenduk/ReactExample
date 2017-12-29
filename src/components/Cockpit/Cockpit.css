@@ -1,0 +1,47 @@
+.CockPit
+{
+      text-align: center;
+}
+.logo {
+  animation: App-logo-spin infinite 20s linear;
+  height: 80px;
+}
+
+.header {
+  background-color: #222;
+  height: 150px;
+  padding: 20px;
+  color: white;
+}
+
+.title {
+  font-size: 1.5em;
+}
+
+.intro {
+  font-size: large;
+}
+
+.CockPit button {
+  background-Color : green;
+  color : white;
+  font : inherit;
+  border : 1px solid blue;
+  padding : 8px;
+  cursor: pointer;
+}
+
+.CockPit button:hover {
+  background-color: lightgreen;
+  color: black;
+}
+
+.CockPit button.Red {
+  background-color: red;
+  color: black;
+}
+
+.CockPit button.Red:hover {
+  background-color:salmon;
+  color: black;
+}
