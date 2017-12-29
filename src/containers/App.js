@@ -49,17 +49,18 @@ class App extends Component {
 
   render() {
     // Scoped Styling
-    const style = {
-      backgroundColor : 'green',
-      color : 'white',
-      font : 'inherit',
-      border : '1px solid blue',
-      padding : '8px',
-      cursor: 'pointer',
-      //':hover': { backgroundColor : 'lightgreen', color : 'black' }
-    };
+    // const style = {
+    //   backgroundColor : 'green',
+    //   color : 'white',
+    //   font : 'inherit',
+    //   border : '1px solid blue',
+    //   padding : '8px',
+    //   cursor: 'pointer',
+    //   //':hover': { backgroundColor : 'lightgreen', color : 'black' }
+    // };
 
     let persons = null;
+    let btnStyle = classes.button;
 
     if(this.state.showPersons)
     {
@@ -74,23 +75,13 @@ class App extends Component {
                         changed = {(event) => this.nameChangedHandler(event,person.id)}                      
                 />
               )})          
-          }            
-          {/*<Person name={this.state.persons[0].name} 
-              age={this.state.persons[0].age} 
-              onClick = { this.switchNameHandler.bind(this,'Max!') } 
-              />
-          <Person name={this.state.persons[1].name} 
-              age={this.state.persons[1].age}                    
-              onClick = { this.switchNameHandler.bind(this,'Maximillian!') } 
-              changed = {this.nameChangedHandler}
-              >My Hobbies:Driving</Person>
-          <Person name={this.state.persons[2].name} 
-              age={this.state.persons[2].age}/>*/}
+          }                      
         </div>);
 
-        style.backgroundColor = 'red';
-        style.color = 'black';
+        // style.backgroundColor = 'red';
+        // style.color = 'black';
         // style[':hover'] = { backgroundColor : 'salmon', color : 'black' }
+        btnStyle = classes.Red;
     } 
     
 
@@ -104,27 +95,10 @@ class App extends Component {
           <p className={classes.Appintro}>
             To get started, edit <code>src/App.js</code> and save to reload.
           </p>
-          <button 
-            style = {style} 
+          <button className = {btnStyle}           
             onClick = {this.togglePersonHandler}>Toggle Persons</button>
           
-          {persons}
-
-          {/* this.state.showPersons ? 
-          <div>           
-            <Person name={this.state.persons[0].name} 
-                age={this.state.persons[0].age} 
-                onClick = { this.switchNameHandler.bind(this,'Max!') } 
-                />
-            <Person name={this.state.persons[1].name} 
-                age={this.state.persons[1].age}                    
-                onClick = { this.switchNameHandler.bind(this,'Maximillian!') } 
-                changed = {this.nameChangedHandler}
-                >My Hobbies:Driving</Person>
-            <Person name={this.state.persons[2].name} 
-                age={this.state.persons[2].age}/>
-          </div>
-          :null*/}        
+          {persons}                  
         </div>
       //</StyleRoot>
     );
