@@ -2,6 +2,8 @@ import React, { Component } from 'react';
 import classes from './App.css';
 import Persons from '../components/Persons/Persons'
 import CockPit from '../components/Cockpit/Cockpit'
+import Auxiliary from '../hoc/Auxiliary'
+import withClass from '../hoc/withClass'
 //import Radium, {StyleRoot} from 'radium';
 
 class App extends Component {
@@ -50,17 +52,19 @@ class App extends Component {
   render() {        
     return (
       //<StyleRoot>
-        <div className={classes.App}>
+        //<div className={classes.App}>
+        <Auxiliary>
           <CockPit toggled = {this.togglePersonHandler} showPersons = {this.state.showPersons} />          
           <Persons showPersons = {this.state.showPersons}
             persons = {this.state.persons} 
             clicked = {this.deletePersonHandler} 
-            changed = {this.nameChangedHandler} />                  
-        </div>
+            changed = {this.nameChangedHandler} />                          
+        </Auxiliary>
+        //</div>
       //</StyleRoot>
     );
   }
 }
 
 //export default Radium(App);
-export default App;
+export default withClass(App, classes.App);
